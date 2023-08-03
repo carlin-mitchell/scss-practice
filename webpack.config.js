@@ -39,4 +39,7 @@ module.exports = {
     minimize: true,
   },
   cache: false,
+  stats: {
+    loggingDebug: ["sass-loader"],
+  },
 };
