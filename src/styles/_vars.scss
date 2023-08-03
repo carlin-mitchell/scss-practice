@@ -1,6 +1,12 @@
+@use "sass:math";
+
 // fonts
 $main-font-stack: Futura, ‘Century Gothic’, AppleGothic, sans-serif;
 $base-font-size: 1rem;
+$font-size-sm: $base-font-size * 0.75;
+$font-size-lg: $base-font-size * 1.5;
+$font-size-xl: $base-font-size * 2;
+$font-size-xxl: $base-font-size * 3;
 
 // theme colors
 $primary: #236dee;
@@ -14,7 +20,9 @@ $base-margin: 0.75rem;
 
 // borders
 $base-border-width: 1px;
+
 $base-border-radius: 20px;
+$border-radius-sm: math.div($base-border-radius, 4);
 
 // box-shadow
 $base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
