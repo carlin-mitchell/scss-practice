@@ -10,12 +10,14 @@ const Content = () => {
       className: ``,
     });
   const Hr = () => Element("hr", { className: `bg-black` });
-  const Section = (title, contentComponent) =>
-    Element("div", {}, [Header(title), contentComponent, Hr()]);
+  const Section = (title, contentComponent, useHorizontalRule = true) => {
+    const hr = useHorizontalRule ? [Hr()] : [];
+    return Element("div", {}, [Header(title), contentComponent, ...hr]);
+  };
 
   const content = Element("div", { className: `content` }, [
     Section("Colors", Colors()),
-    Section("Cards", Card()),
+    Section("Cards", Card(), false),
   ]);
   return content;
 };
