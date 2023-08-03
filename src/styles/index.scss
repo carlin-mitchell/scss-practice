@@ -1,6 +1,15 @@
+// variables and functions
 @use "./vars" as *;
 
+// base & layout
 @use "./normalize";
 @use "./base";
 
+// colors
+@use "./colors";
+
+// components
 @use "./components/card";
+
+// utilities
+@use "./utilities/utils";

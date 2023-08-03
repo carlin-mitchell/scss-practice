@@ -1,0 +1,31 @@
+@use "../vars" as *;
+@use "sass:math";
+
+.inline-block {
+  display: inline-block;
+}
+
+.marging-base {
+}
+
+.display-flex-base {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+//margins
+.mb-sm {
+  margin-bottom: $margin-sm;
+}
+
+//paddings
+.p-sm {
+  padding: $padding-sm;
+}
+.p-xs {
+  padding: $padding-xs;
+}
