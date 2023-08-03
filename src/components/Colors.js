@@ -16,6 +16,7 @@ const Colors = () => {
     "purple",
     "gray",
     "black",
+    "pink",
     "white",
   ];
 
@@ -60,8 +61,42 @@ const Colors = () => {
     );
   });
 
+  const bgShadingDivDark = Element("div", { className: `display-flex-base` });
+  for (let i = 1; i <= 9; i++) {
+    bgShadingDivDark.appendChild(
+      Element("span", {
+        className: `bg-primary-dark-${i} text-nowrap mb-sm p-xs text-white`,
+        innerText: `primary dark ${i}`,
+      })
+    );
+    bgShadingDivDark.appendChild(
+      Element("div", {
+        innerText: `${i === 9 ? "" : "|"}`,
+        className: `text-black inline-block p-xs`,
+      })
+    );
+  }
+
+  const bgShadingDivLight = Element("div", { className: `display-flex-base` });
+  for (let i = 1; i <= 9; i++) {
+    bgShadingDivLight.appendChild(
+      Element("span", {
+        className: `bg-primary-light-${i} text-nowrap mb-sm p-xs text-black`,
+        innerText: `primary light ${i}`,
+      })
+    );
+    bgShadingDivLight.appendChild(
+      Element("div", {
+        innerText: `${i === 9 ? "" : "|"}`,
+        className: `text-black inline-block p-xs`,
+      })
+    );
+  }
+
   colors.appendChild(textColorsDiv);
   colors.appendChild(bgColorsDiv);
+  colors.appendChild(bgShadingDivDark);
+  colors.appendChild(bgShadingDivLight);
   return colors;
 };
 

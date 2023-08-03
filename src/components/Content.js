@@ -4,16 +4,18 @@ import Card from "./Card";
 import Colors from "./Colors";
 
 const Content = () => {
-  const cardsHeader = Element("h2", { innerText: `Cards` });
-  const colorsHeader = Element("h2", { innerText: `Colors` });
+  const Header = (text) =>
+    Element("h2", {
+      innerText: `${text}`,
+      className: ``,
+    });
+  const Hr = () => Element("hr", { className: `bg-black` });
+  const Section = (title, contentComponent) =>
+    Element("div", {}, [Header(title), contentComponent, Hr()]);
 
   const content = Element("div", { className: `content` }, [
-    colorsHeader,
-    Colors(),
-    Element("hr", { className: `bg-black` }),
-    cardsHeader,
-    Card(),
-    Element("hr", { className: `bg-black` }),
+    Section("Colors", Colors()),
+    Section("Cards", Card()),
   ]);
   return content;
 };
