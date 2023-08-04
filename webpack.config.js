@@ -3,6 +3,7 @@ const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const PATHS = {
   src: path.join(__dirname, "src"),
@@ -43,9 +44,10 @@ module.exports = {
     //   paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
     // }),
     new MiniCssExtractPlugin(),
+    new CssMinimizerPlugin(),
   ],
   optimization: {
-    minimize: true,
+    minimize: false,
     splitChunks: {
       cacheGroups: {
         styles: {

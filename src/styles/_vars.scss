@@ -50,5 +50,7 @@ $base-border-width: 1px;
 $base-border-radius: 20px;
 $border-radius-sm: math.div($base-border-radius, 4);
 
+$base-border-thickness: 1px;
+
 // box-shadow
 $base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);

@@ -94,10 +94,29 @@ const Colors = () => {
     );
   }
 
+  const hoverColorDiv = Element("div", { className: `display-flex-base` });
+  const hoverColorElem = (className, innerText) =>
+    Element("div", { className, innerText });
+  const pipeChar = () =>
+    Element("div", {
+      className: `text-black inline-block p-xs`,
+      innerText: "|",
+    });
+
+  const sharedClasses = "cursor-pointer mb-sm p-xs";
+  const hoverColorDivs = [
+    hoverColorElem("text-hover-purple " + sharedClasses, "text-hover-purple"),
+    pipeChar(),
+    hoverColorElem("bg-hover-orange " + sharedClasses, "bg-hover-orange"),
+  ];
+
+  hoverColorDivs.forEach((element) => hoverColorDiv.appendChild(element));
+
   colors.appendChild(textColorsDiv);
   colors.appendChild(bgColorsDiv);
   colors.appendChild(bgShadingDivDark);
   colors.appendChild(bgShadingDivLight);
+  colors.appendChild(hoverColorDiv);
   return colors;
 };
 

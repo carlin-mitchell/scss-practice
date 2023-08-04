@@ -21,6 +21,9 @@
 .mb-md {
   margin-bottom: $base-margin;
 }
+.m-sm {
+  margin: $margin-sm;
+}
 
 //paddings
 .p-sm {
@@ -28,4 +31,9 @@
 }
 .p-xs {
   padding: $padding-xs;
+}
+
+//cursors
+.cursor-pointer {
+  cursor: pointer;
 }

@@ -2,6 +2,7 @@ import Element from "./Element";
 
 import Card from "./Card";
 import Colors from "./Colors";
+import Buttons from "./Buttons";
 
 const Content = () => {
   const Header = (text) =>
@@ -17,7 +18,8 @@ const Content = () => {
 
   const content = Element("div", { className: `content` }, [
     Section("Colors", Colors()),
-    Section("Cards", Card(), false),
+    Section("Cards", Card()),
+    Section("Buttons", Buttons(), true),
   ]);
   return content;
 };
