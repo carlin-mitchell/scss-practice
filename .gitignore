@@ -145,3 +145,5 @@ out
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+*.LICENSE.txt

@@ -24,23 +24,24 @@ const Colors = () => {
 
   const textColorsDiv = Element("div");
   textColors.forEach((color, index) => {
-    textColorsDiv.appendChild(
-      Element(
-        "span",
-        {
-          className: `text-${color} ${
-            index === lastItemIndex ? "bg-black" : ""
-          }`,
-          innerText: " " + color + " text" + " ",
-        },
-        [
-          Element("div", {
-            innerText: `${index === lastItemIndex ? "" : "|"}`,
-            className: `text-black inline-block mb-sm  `,
-          }),
-        ]
-      )
+    const colorClass = "text-" + color;
+    const element = Element(
+      "span",
+      {
+        className: [
+          `${colorClass} ${index === lastItemIndex ? "bg-black" : ""}`,
+        ],
+        innerText: " " + color + " text" + " ",
+      },
+      [
+        Element("div", {
+          innerText: `${index === lastItemIndex ? "" : "|"}`,
+          className: `text-black inline-block mb-sm  `,
+        }),
+      ]
     );
+    element.classList.add(`text-${color}`);
+    textColorsDiv.appendChild(element);
   });
 
   const bgColorsDiv = Element("div", { className: `display-flex-base` });
