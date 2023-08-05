@@ -19,7 +19,7 @@ const Content = () => {
   const content = Element("div", { className: `content` }, [
     Section("Colors", Colors()),
     Section("Cards", Card()),
-    Section("Buttons", Buttons(), true),
+    Section("Buttons", Buttons(), false),
   ]);
   return content;
 };
