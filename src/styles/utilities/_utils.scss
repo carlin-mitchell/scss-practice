@@ -1,4 +1,5 @@
 @use "../vars" as *;
+@use "./functions";
 @use "sass:math";
 
 .inline-block {
