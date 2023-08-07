@@ -40,14 +40,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "XXXtitleXXX",
     }),
-    // new PurgeCSSPlugin({
-    //   paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-    // }),
+    new PurgeCSSPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    }),
     new MiniCssExtractPlugin(),
     new CssMinimizerPlugin(),
   ],
   optimization: {
-    minimize: false,
+    minimize: true,
     splitChunks: {
       cacheGroups: {
         styles: {
