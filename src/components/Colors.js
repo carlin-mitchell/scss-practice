@@ -3,119 +3,134 @@ import Element from "./Element";
 const Colors = () => {
   const colors = Element("div", {});
 
-  const textColors = [
-    "primary",
-    "secondary",
-    "error",
-    "info",
-    "blue",
-    "red",
-    "yellow",
-    "green",
-    "orange",
-    "purple",
-    "gray",
-    "black",
-    "pink",
-    "white",
-  ];
+  const colorElement = (className, textBlack = false, bgBlack = false) =>
+    Element("span", {
+      className: `${className} ${textBlack ? " text-black" : ""} ${
+        textBlack === "white" ? "text-white" : ""
+      } ${bgBlack ? " bg-black" : ""} mb-sm`,
+      innerText: className,
+    });
 
-  const lastItemIndex = textColors.length - 1;
-
-  const textColorsDiv = Element("div");
-  textColors.forEach((color, index) => {
-    const colorClass = "text-" + color;
-    const element = Element(
-      "span",
-      {
-        className: [
-          `${colorClass} ${index === lastItemIndex ? "bg-black" : ""}`,
-        ],
-        innerText: " " + color + " text" + " ",
-      },
-      [
-        Element("div", {
-          innerText: `${index === lastItemIndex ? "" : "|"}`,
-          className: `text-black inline-block mb-sm  `,
-        }),
-      ]
-    );
-    element.classList.add(`text-${color}`);
-    textColorsDiv.appendChild(element);
-  });
-
-  const bgColorsDiv = Element("div", { className: `display-flex-base` });
-  textColors.forEach((color, index) => {
-    bgColorsDiv.appendChild(
-      Element("span", {
-        className: `bg-${color} text-nowrap mb-sm p-xs ${
-          index === lastItemIndex ? "text-black" : "text-white"
-        }`,
-        innerText: " " + "bg-" + color + " ",
-      })
-    );
-    bgColorsDiv.appendChild(
-      Element("div", {
-        innerText: `${index === lastItemIndex ? "" : "|"}`,
-        className: `text-black inline-block p-xs`,
-      })
-    );
-  });
-
-  const bgShadingDivDark = Element("div", { className: `display-flex-base` });
-  for (let i = 1; i <= 9; i++) {
-    bgShadingDivDark.appendChild(
-      Element("span", {
-        className: `bg-primary-dark-${i} text-nowrap mb-sm p-xs text-white`,
-        innerText: `primary dark ${i}`,
-      })
-    );
-    bgShadingDivDark.appendChild(
-      Element("div", {
-        innerText: `${i === 9 ? "" : "|"}`,
-        className: `text-black inline-block p-xs`,
-      })
-    );
-  }
-
-  const bgShadingDivLight = Element("div", { className: `display-flex-base` });
-  for (let i = 1; i <= 9; i++) {
-    bgShadingDivLight.appendChild(
-      Element("span", {
-        className: `bg-primary-light-${i} text-nowrap mb-sm p-xs text-black`,
-        innerText: `primary light ${i}`,
-      })
-    );
-    bgShadingDivLight.appendChild(
-      Element("div", {
-        innerText: `${i === 9 ? "" : "|"}`,
-        className: `text-black inline-block p-xs`,
-      })
-    );
-  }
-
-  const hoverColorDiv = Element("div", { className: `display-flex-base` });
-  const hoverColorElem = (className, innerText) =>
-    Element("div", { className, innerText });
-  const pipeChar = () =>
+  const pipeElement = () =>
     Element("div", {
-      className: `text-black inline-block p-xs`,
+      className: `text-black inline-block mb-sm  `,
       innerText: "|",
     });
 
-  const sharedClasses = "cursor-pointer mb-sm p-xs";
-  const hoverColorDivs = [
-    hoverColorElem("text-hover-purple " + sharedClasses, "text-hover-purple"),
-    pipeChar(),
-    hoverColorElem("bg-hover-orange " + sharedClasses, "bg-hover-orange"),
+  const textColorElems = [
+    colorElement("text-primary"),
+    pipeElement(),
+    colorElement("text-secondary"),
+    pipeElement(),
+    colorElement("text-error"),
+    pipeElement(),
+    colorElement("text-info"),
+    pipeElement(),
+    colorElement("text-blue"),
+    pipeElement(),
+    colorElement("text-red"),
+    pipeElement(),
+    colorElement("text-green"),
+    pipeElement(),
+    colorElement("text-orange"),
+    pipeElement(),
+    colorElement("text-purple"),
+    pipeElement(),
+    colorElement("text-gray"),
+    pipeElement(),
+    colorElement("text-black"),
+    pipeElement(),
+    colorElement("text-pink"),
+    pipeElement(),
+    colorElement("text-white", false, true),
   ];
+  const textColorsDiv = Element("div", {
+    className: "display-flex base mb-sm",
+  });
+  textColorElems.forEach((elem) => textColorsDiv.appendChild(elem));
 
-  hoverColorDivs.forEach((element) => hoverColorDiv.appendChild(element));
+  const bgColorElems = [
+    colorElement("bg-primary"),
+    pipeElement(),
+    colorElement("bg-secondary"),
+    pipeElement(),
+    colorElement("bg-error"),
+    pipeElement(),
+    colorElement("bg-info"),
+    pipeElement(),
+    colorElement("bg-blue"),
+    pipeElement(),
+    colorElement("bg-red"),
+    pipeElement(),
+    colorElement("bg-green"),
+    pipeElement(),
+    colorElement("bg-orange"),
+    pipeElement(),
+    colorElement("bg-purple"),
+    pipeElement(),
+    colorElement("bg-gray"),
+    pipeElement(),
+    colorElement("bg-black", "white"),
+    pipeElement(),
+    colorElement("bg-pink"),
+    pipeElement(),
+    colorElement("bg-white"),
+  ];
+  const bgColorsDiv = Element("div");
+  bgColorElems.forEach((elem) => bgColorsDiv.appendChild(elem));
+
+  const bgShadingElems = [
+    colorElement("bg-primary-dark-1", "white"),
+    pipeElement(),
+    colorElement("bg-primary-dark-2", "white"),
+    pipeElement(),
+    colorElement("bg-primary-dark-3", "white"),
+    pipeElement(),
+    colorElement("bg-primary-dark-4", "white"),
+    pipeElement(),
+    colorElement("bg-primary-dark-5", "white"),
+    pipeElement(),
+    colorElement("bg-primary-dark-6", "white"),
+    pipeElement(),
+    colorElement("bg-primary-dark-7", "white"),
+    pipeElement(),
+    colorElement("bg-primary-dark-8", "white"),
+    pipeElement(),
+    colorElement("bg-primary-dark-9", "white"),
+    pipeElement(),
+    colorElement("bg-primary-light-1"),
+    pipeElement(),
+    colorElement("bg-primary-light-2"),
+    pipeElement(),
+    colorElement("bg-primary-light-3"),
+    pipeElement(),
+    colorElement("bg-primary-light-4"),
+    pipeElement(),
+    colorElement("bg-primary-light-5"),
+    pipeElement(),
+    colorElement("bg-primary-light-6"),
+    pipeElement(),
+    colorElement("bg-primary-light-7"),
+    pipeElement(),
+    colorElement("bg-primary-light-8"),
+    pipeElement(),
+    colorElement("bg-primary-light-9"),
+  ];
+  const bgShadingDiv = Element("div", { className: `display-flex-base` });
+  bgShadingElems.forEach((elem) => bgShadingDiv.appendChild(elem));
+
+  const sharedClasses = `cursor-pointer`;
+  const hoverDivElems = [
+    colorElement("text-hover-purple " + sharedClasses),
+    pipeElement(),
+    colorElement("bg-hover-orange " + sharedClasses),
+  ];
+  const hoverColorDiv = Element("div", { className: `display-flex-base` });
+  hoverDivElems.forEach((element) => hoverColorDiv.appendChild(element));
 
   colors.appendChild(textColorsDiv);
   colors.appendChild(bgColorsDiv);
-  colors.appendChild(bgShadingDivDark);
-  colors.appendChild(bgShadingDivLight);
+  colors.appendChild(bgShadingDiv);
   colors.appendChild(hoverColorDiv);
   return colors;
 };

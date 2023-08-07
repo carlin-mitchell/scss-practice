@@ -37,7 +37,7 @@ $percent-mix: 10%;
         background-color: mix(white, $val, $i * $percent-mix);
       }
 
-      .bg-hover-#{$key}-light-#{i} {
+      .bg-hover-#{$key}-light-#{$i} {
         &:hover {
           background-color: mix(white, $val, $i * $percent-mix);
         }
@@ -59,7 +59,7 @@ $percent-mix: 10%;
         background-color: mix(black, $val, $i * $percent-mix);
       }
 
-      .bg-hover-#{$key}-dark-#{i} {
+      .bg-hover-#{$key}-dark-#{$i} {
         &:hover {
           background-color: mix(black, $val, $i * $percent-mix);
         }

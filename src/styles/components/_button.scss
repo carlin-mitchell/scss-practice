@@ -39,9 +39,10 @@
   }
   .btn-compliment-#{$key} {
     @include btn($val);
-    color: complement($color: $val);
+    color: light-comp($val);
     &:hover {
       color: $val;
+      background-color: light-comp($val);
     }
   }
 }
