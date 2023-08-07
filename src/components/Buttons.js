@@ -5,7 +5,7 @@ const Buttons = () => {
   const button = (className, innerText) =>
     Element("button", { className, innerText });
 
-  const sharedClasses = " m-1";
+  const sharedClasses = " m-1 p-1";
   const buttonElems = [
     button("btn-primary" + sharedClasses, "btn-primary"),
     button("btn-secondary" + sharedClasses, "btn-secondary"),

@@ -7,13 +7,13 @@ const Colors = () => {
     Element("span", {
       className: `${className} ${textBlack ? " text-black" : ""} ${
         textBlack === "white" ? "text-white" : ""
-      } ${bgBlack ? " bg-black" : ""} mb-1 display-i-b white-space-no-wrap`,
+      } ${bgBlack ? " bg-black" : ""} mb-1 display-i-b white-space-no-wrap p-1`,
       innerText: className,
     });
 
   const pipeElement = () =>
     Element("div", {
-      className: `text-black display-i-b mb-1`,
+      className: `text-black display-i-b mb-1 p-1`,
       innerText: "|",
     });
 
@@ -131,7 +131,7 @@ const Colors = () => {
     pipeElement(),
     colorElement("bg-hover-orange " + sharedClasses),
   ];
-  const hoverColorDiv = Element("div", { className: `display-f` });
+  const hoverColorDiv = Element("div", { className: sharedContainerClasses });
   hoverDivElems.forEach((element) => hoverColorDiv.appendChild(element));
 
   colors.appendChild(textColorsDiv);

@@ -8,9 +8,13 @@
 // colors
 @use "./colors";
 
+// utilities
+@use "./utilities";
+
+// breakpoints
+@use "./breakpoints";
+
 // components
 @use "./components/card";
 @use "./components/button";
-
-// utilities
-@use "./utilities/utils";
+@use "./components/navbar";
