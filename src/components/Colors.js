@@ -7,15 +7,17 @@ const Colors = () => {
     Element("span", {
       className: `${className} ${textBlack ? " text-black" : ""} ${
         textBlack === "white" ? "text-white" : ""
-      } ${bgBlack ? " bg-black" : ""} mb-sm`,
+      } ${bgBlack ? " bg-black" : ""} mb-1 display-i-b white-space-no-wrap`,
       innerText: className,
     });
 
   const pipeElement = () =>
     Element("div", {
-      className: `text-black inline-block mb-sm  `,
+      className: `text-black display-i-b mb-1`,
       innerText: "|",
     });
+
+  const sharedContainerClasses = "display-f flex-wrap";
 
   const textColorElems = [
     colorElement("text-primary"),
@@ -45,7 +47,7 @@ const Colors = () => {
     colorElement("text-white", false, true),
   ];
   const textColorsDiv = Element("div", {
-    className: "display-flex base mb-sm",
+    className: sharedContainerClasses,
   });
   textColorElems.forEach((elem) => textColorsDiv.appendChild(elem));
 
@@ -76,7 +78,9 @@ const Colors = () => {
     pipeElement(),
     colorElement("bg-white"),
   ];
-  const bgColorsDiv = Element("div");
+  const bgColorsDiv = Element("div", {
+    className: sharedContainerClasses,
+  });
   bgColorElems.forEach((elem) => bgColorsDiv.appendChild(elem));
 
   const bgShadingElems = [
@@ -116,7 +120,9 @@ const Colors = () => {
     pipeElement(),
     colorElement("bg-primary-light-9"),
   ];
-  const bgShadingDiv = Element("div", { className: `display-flex-base` });
+  const bgShadingDiv = Element("div", {
+    className: sharedContainerClasses,
+  });
   bgShadingElems.forEach((elem) => bgShadingDiv.appendChild(elem));
 
   const sharedClasses = `cursor-pointer`;
@@ -125,7 +131,7 @@ const Colors = () => {
     pipeElement(),
     colorElement("bg-hover-orange " + sharedClasses),
   ];
-  const hoverColorDiv = Element("div", { className: `display-flex-base` });
+  const hoverColorDiv = Element("div", { className: `display-f` });
   hoverDivElems.forEach((element) => hoverColorDiv.appendChild(element));
 
   colors.appendChild(textColorsDiv);
